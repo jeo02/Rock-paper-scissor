@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock-Paper-Scissors Game</title>
+        <script>
+            game();
+            function computerPlay(){
+                let random = parseInt(Math.random()*3);
+                console.log(random);
+                if(random == 0)
+                    return "Rock";
+                else if(random == 1)
+                    return "Paper";
+                else
+                    return "Scissors";
+            }
+
+            function roundPlay(playerSelection, computerSelection){
+                playerSelection = playerSelection.toLowerCase();
+                computerSelection = computerSelection.toLowerCase();
+                let win = false;
+                if(playerSelection === computerSelection)
+                    return "Tie! " + playerSelection + " ties " + computerSelection+".";
+                else if(playerSelection === "rock" && computerSelection === "scissor"
+                || playerSelection === "paper" && computerSelection === "rock"
+                || playerSelection === "scissor" && computerSelection === "paper")
+                    win = true;
+                
+                if(win)
+                    return "You won! " + playerSelection + " beats " + computerSelection;
+                return "You lose :( " + computerSelection + " beats " + playerSelection;   
+            }
+
+            function game(){
+                for(let i = 0; i < 5; i++){
+                    let player = prompt("Type 'Rock', 'Scissor', or 'Paper'");
+                    let computer = computerPlay();
+                    console.log(roundPlay(player, computer));
+                }
+            }
+        </script>
+    </head>
+</html>
