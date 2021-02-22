@@ -17,11 +17,11 @@
             function computerPlay(){
                 let random = parseInt(Math.random()*3);
                 if(random == 0)
-                    return "Rock";
+                    return "rock";
                 else if(random == 1)
-                    return "Paper";
+                    return "paper";
                 else
-                    return "Scissors";
+                    return "scissor";
             }
             function checkRock(){
                 rock = true;
@@ -40,7 +40,6 @@
             }
             function roundPlay(playerSelection, computerSelection){
                 playerSelection = playerSelection.toLowerCase();
-                computerSelection = computerSelection.toLowerCase();
                 let win = false;
                 if(playerSelection === computerSelection)
                     return "Tie! " + playerSelection + " ties " + computerSelection+".";
