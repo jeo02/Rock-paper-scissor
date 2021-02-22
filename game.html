@@ -53,10 +53,32 @@
                     return "You won! " + playerSelection + " beats " + computerSelection;
                 return "You lose :( " + computerSelection + " beats " + playerSelection;   
             }
+
+            function valid(){
+                let count = 0;
+                if(rock == true)
+                    count++;
+                else if(paper == true)
+                    count++;
+                else if(scissor == true)
+                    count++;
+                
+                if(count == 1)
+                    return true;
+                return false;
+            }
             function game(){
-                if(!(paper == false && scissor == false && rock == false)){
+                if(valid()){
                     let computer = computerPlay();
-                    document.getElementById("result").innerHTML = "<p>" + roundPlay(player, computer) + "</p>";
+                    let tag = document.createElement("p");
+                    let player = 'rock';
+                    if(paper == true)
+                        player = 'paper';
+                    else if(scissor == true)
+                        player = 'scissor';
+                    let text = document.createTextNode(roundPlay(player, computer));
+                    tag.appendChild(text);
+                    document.getElementById("result").appendChild(tag);
                 }
             }
         </script>
