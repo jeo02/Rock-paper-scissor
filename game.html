@@ -7,26 +7,21 @@
         <button onclick = "checkRock()" id = "rock">Rock</button>
         <button onclick = "checkPaper()" id = "paper">Paper</button>
         <button onclick = "checkScissor()" id = "scissor">Scissor</button>
-        <button onclick = "checkSubmit()" id = "submit">Submit</button>
+        <button onclick = "game()" id = "submit">Submit</button>
         <div id = "result"></div>
 
     </body>
 
         <script>
-            game();
             let submit = false, rock = false, paper = false, scissor = false;
             function computerPlay(){
                 let random = parseInt(Math.random()*3);
-                console.log(random);
                 if(random == 0)
                     return "Rock";
                 else if(random == 1)
                     return "Paper";
                 else
                     return "Scissors";
-            }
-            function checkSubmit(){
-                submit = true;
             }
             function checkRock(){
                 rock = true;
@@ -59,9 +54,7 @@
                 return "You lose :( " + computerSelection + " beats " + playerSelection;   
             }
             function game(){
-                for(let i = 0; i < 5; i++){
-                    while(!submit){
-                    }
+                if(!(paper == false && scissor == false && rock == false)){
                     let computer = computerPlay();
                     document.getElementById("result").innerHTML = "<p>" + roundPlay(player, computer) + "</p>";
                 }
