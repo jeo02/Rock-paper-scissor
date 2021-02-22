@@ -69,7 +69,11 @@
             }
             function game(){
                 if(valid()){
-                    document.getElementById("theResult").remove();
+                    //removing previous result, if any
+                    let remove = document.getElementById("theResult");
+                    if(remove != null)
+                        remove.remove();
+
                     //computer and users play
                     let computer = computerPlay();
                     let player = 'rock';
