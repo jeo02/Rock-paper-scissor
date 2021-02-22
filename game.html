@@ -69,13 +69,19 @@
             }
             function game(){
                 if(valid()){
+                    document.getElementById("theResult").remove();
+                    //computer and users play
                     let computer = computerPlay();
-                    let tag = document.createElement("p");
                     let player = 'rock';
                     if(paper == true)
                         player = 'paper';
-                    else if(scissor == true)
+                    else if(scissor == true){
                         player = 'scissor';
+                    } 
+                    
+                    //adding element
+                    let tag = document.createElement("p");
+                    tag.setAttribute("id", "theResult");
                     let text = document.createTextNode(roundPlay(player, computer));
                     tag.appendChild(text);
                     document.getElementById("result").appendChild(tag);
