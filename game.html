@@ -4,6 +4,7 @@
         <title>Rock-Paper-Scissors Game</title>
         <script>
             game();
+            let submit = false, rock = false, paper = false, scissor = false;
             function computerPlay(){
                 let random = parseInt(Math.random()*3);
                 console.log(random);
@@ -14,7 +15,24 @@
                 else
                     return "Scissors";
             }
-
+            function checkSubmit(){
+                submit = true;
+            }
+            function checkRock(){
+                rock = true;
+                scissor = false;
+                paper = false;
+            }
+            function checkPaper(){
+                rock = false;
+                scissor = false;
+                paper = true;
+            }
+            function checkScissor(){
+                rock = false;
+                scissor = true;
+                paper = false;
+            }
             function roundPlay(playerSelection, computerSelection){
                 playerSelection = playerSelection.toLowerCase();
                 computerSelection = computerSelection.toLowerCase();
@@ -30,17 +48,22 @@
                     return "You won! " + playerSelection + " beats " + computerSelection;
                 return "You lose :( " + computerSelection + " beats " + playerSelection;   
             }
-
             function game(){
                 for(let i = 0; i < 5; i++){
-                    let player = prompt("Type 'Rock', 'Scissor', or 'Paper'");
+                    while(!submit){
+                    }
                     let computer = computerPlay();
-                    console.log(roundPlay(player, computer));
+                    document.getElementById("result").innerHTML = "<p>" + roundPlay(player, computer) + "</p>";
                 }
             }
         </script>
     </head>
     <body>
-        
+        <button id = "rock">Rock</button>
+        <button id = "paper">Paper</button>
+        <button id = "scissor">Scissor</button>
+        <button id = "submit">Submit</button>
+        <div id = "result"></div>
+
     </body>
 </html>
