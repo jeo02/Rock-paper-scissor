@@ -2,12 +2,21 @@
 <html>
     <head>
         <title>Rock-Paper-Scissors Game</title>
+        <link rel = "stylesheet" href = "style.css">
     </head>
     <body>
-        <button onclick = "checkRock()" id = "rock">Rock</button>
-        <button onclick = "checkPaper()" id = "paper">Paper</button>
-        <button onclick = "checkScissor()" id = "scissor">Scissor</button>
-        <button onclick = "game()" id = "submit">Submit</button>
+        <div class = "header">
+            <h1>Rock, Paper, Scissors</h1>
+            <p>Just select an option and press play!</p> 
+        </div>
+        
+        <div class = "buttonSpace">
+            <button onclick = "checkRock()" id = "rock" class = "buttons">Rock</button>
+            <button onclick = "checkPaper()" id = "paper" class = "buttons">Paper</button>
+            <button onclick = "checkScissor()" id = "scissor" class = "buttons">Scissor</button>
+            <button onclick = "game()" id = "submit" class = "buttons">Play</button>
+        </div>
+
         <div id = "result"></div>
 
     </body>
@@ -24,19 +33,36 @@
                     return "scissor";
             }
             function checkRock(){
+                //updating the values
                 rock = true;
                 scissor = false;
                 paper = false;
+
+                //updating the styling
+                document.getElementById("rock").style.backgroundColor = "#86C5D8";
+                document.getElementById("paper").style.backgroundColor = "";
+                document.getElementById("scissor").style.backgroundColor = "";
+                
             }
             function checkPaper(){
                 rock = false;
                 scissor = false;
                 paper = true;
+
+                //updating the styling
+                document.getElementById("rock").style.backgroundColor = "";
+                document.getElementById("paper").style.backgroundColor = "#86C5D8";
+                document.getElementById("scissor").style.backgroundColor = "";
             }
             function checkScissor(){
                 rock = false;
                 scissor = true;
                 paper = false;
+
+                //updating the styling
+                document.getElementById("rock").style.backgroundColor = "";
+                document.getElementById("paper").style.backgroundColor = "";
+                document.getElementById("scissor").style.backgroundColor = "#86C5D8";
             }
             function roundPlay(playerSelection, computerSelection){
                 playerSelection = playerSelection.toLowerCase();
@@ -88,6 +114,16 @@
                     let text = document.createTextNode(roundPlay(player, computer));
                     tag.appendChild(text);
                     document.getElementById("result").appendChild(tag);
+
+                    //updating the styling
+                    document.getElementById("rock").style.backgroundColor = "";
+                    document.getElementById("paper").style.backgroundColor = "";
+                    document.getElementById("scissor").style.backgroundColor = "";
+
+                    //updating the elements
+                    rock = false;
+                    paper = false;
+                    scissor = false;
                 }
             }
         </script>

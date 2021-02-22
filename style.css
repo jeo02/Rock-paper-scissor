@@ -1,16 +1,31 @@
-h1{
+.header{
+    font-size: 40px;
     color: white;
+}
+p{
+    font-size: 25px;
 }
 body{
     text-align: center;
     background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .buttonSpace{
     display: flex;
     justify-content: center;
 }
 .buttons{
+    border-radius: 25px;
+    outline: none;
     font-size: 50px;
-    padding: 100px;
+    padding: 75px;
+    margin: 10px;
+}
+.buttons:hover{
+    background-color: lightgray;
+}
+#theResult{
+    font-size: 25px;
+    color: white;
 }
 
