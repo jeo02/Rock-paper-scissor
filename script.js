@@ -78,11 +78,14 @@ function valid(){
 }
 function game(){
     if(valid()){
-    //removing previous result, if any
+        //removing previous result, if any
         let remove = document.getElementById("theResult");
+        let remove2 = document.getElementById("score");
         if(remove != null)
             remove.remove();
-
+        if(remove2 != null){
+            remove2.remove();
+        }
         //computer and users play
         let computer = computerPlay();
         let player = 'rock';
@@ -103,24 +106,24 @@ function game(){
         score.setAttribute("id", "score");
 
         //displaying the score,determining if the player won/lost the rounds
-        if(player >= 3){
+        if(playerScore >= 3){
             text = document.createTextNode("You win! Computer: " +computerScore+ " Player: "+playerScore);
             score.appendChild(text);
-            document.getElementsById("result").appendChild(score);
-            player = 0;
-            computer = 0;
+            document.getElementById("result").appendChild(score);
+            playerScore = 0;
+            computerScore = 0;
         }
-        else if(computer >= 3){
+        else if(computerScore >= 3){
             text = document.createTextNode("You lose :( Computer: " +computerScore+ " Player: "+playerScore);
             score.appendChild(text);
-            document.getElementsById("result").appendChild(score);
-            player = 0;
-            computer = 0;
+            document.getElementById("result").appendChild(score);
+            playerScore = 0;
+            computerScore = 0;
         }
         else{
             text = document.createTextNode("Computer: " +computerScore+ " Player: "+playerScore);
             score.appendChild(text);
-            document.getElementsById("result").appendChild(score);
+            document.getElementById("result").appendChild(score);
         }
 
         

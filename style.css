@@ -32,6 +32,10 @@ body{
     color: white;
 }
 
+#score{
+    font-size: 25px;
+    color: white;
+}
 @media (max-width: 600px){
     .header{
         font-size: 25px;
